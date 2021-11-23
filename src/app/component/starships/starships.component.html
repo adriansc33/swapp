@@ -1,0 +1,82 @@
+<mat-toolbar color="primary">
+    <span>Star Ships</span>
+</mat-toolbar>
+
+<mat-table #table [dataSource]="finalDataSource">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.model}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="manufacturer">
+        <mat-header-cell *matHeaderCellDef> Manu Facturer </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.manufacturer}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="cost_in_credits">
+        <mat-header-cell *matHeaderCellDef> Cost </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.cost_in_credits}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="length">
+        <mat-header-cell *matHeaderCellDef> Length </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.length}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+        <mat-cell *matCellDef="let detail">
+            <table>
+                <tr>
+                    <td>
+                        Crew : {{detail.element.crew}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Passengers : {{detail.element.passengers}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Cargo Cap : {{detail.element.cargo_capacity}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Consumables : {{detail.element.consumables}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Hyperdrive raiting : {{detail.element.hyperdrive_rating}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Starship Class : {{detail.element.starship_class}}
+                    </td>
+                </tr>
+                <tr *ngIf="detail.element.pilots.length > 0">
+                    <p>PILOTS:</p>
+                    <table>
+                        <ng-container *ngFor="let item of detail.element.listPilots">
+                            <tr>
+                               <td>
+                                   <button (click)="this.openDialogPilot(item)">{{item.name}}</button>
+                               </td>
+                            </tr>
+                        </ng-container>
+                    </table>
+                </tr>
+            </table>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"
+        [class.expanded]="expandedElement == row" (click)="expandedElement = row"></mat-row>
+    <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+        [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'" style="overflow: hidden">
+    </mat-row>
+</mat-table>

@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+    <span>Vehicles</span>
+</mat-toolbar>
+
+<mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.model}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="manufacturer">
+        <mat-header-cell *matHeaderCellDef> Manufacturer </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.manufacturer}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="cost_in_credits">
+        <mat-header-cell *matHeaderCellDef> Cost </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.cost_in_credits}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="length">
+        <mat-header-cell *matHeaderCellDef> Length </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.length}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="max_atmosphering_speed">
+        <mat-header-cell *matHeaderCellDef> Max Atmosphering Speed </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.max_atmosphering_speed}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+

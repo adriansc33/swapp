@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    <span>Films</span>
+</mat-toolbar>
+
+<mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="episode_id">
+        <mat-header-cell *matHeaderCellDef> Episode ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.episode_id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="director">
+        <mat-header-cell *matHeaderCellDef> Director </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.director}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="producer">
+        <mat-header-cell *matHeaderCellDef> producer </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.producer}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="release_date">
+        <mat-header-cell *matHeaderCellDef> Release Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.release_date}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+

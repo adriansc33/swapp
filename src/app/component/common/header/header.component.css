@@ -1,0 +1,7 @@
+.tituloHeader {
+    color: var(--primary-dark);
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    max-width: 200px;
+    margin-bottom: 0;
+}

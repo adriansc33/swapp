@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+    <span>Planets</span>
+</mat-toolbar>
+
+<mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="rotation_period">
+        <mat-header-cell *matHeaderCellDef> Rotation Period </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.rotation_period}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="orbital_period">
+        <mat-header-cell *matHeaderCellDef> Orbital Period </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.orbital_period}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="diameter">
+        <mat-header-cell *matHeaderCellDef> Diameter </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.diameter}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="climate">
+        <mat-header-cell *matHeaderCellDef> Climate </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.climate}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gravity">
+        <mat-header-cell *matHeaderCellDef> Gravity </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gravity}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

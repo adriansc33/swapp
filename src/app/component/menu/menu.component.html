@@ -1,0 +1,11 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <ng-container *ngFor="let item of this.menunav">
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]=item.action>
+            <span class="menu-title">{{item.text}}</span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </nav>
