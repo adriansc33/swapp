@@ -1,0 +1,2 @@
+# swapp
+Angular technical test
